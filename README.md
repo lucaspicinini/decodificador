@@ -15,7 +15,7 @@
 
 # WebSite
 
-[Clique aqui para acessar o Decodificador](https://surge.sh/)
+[Clique aqui para acessar o Decodificador](https://lucaspicinini.github.io/decodificador/)
 
 ![Print do site](assets/shot01.png "Site")
 
@@ -77,7 +77,7 @@ Se você está em dúvida sobre outra coisa ou sobre um Pull Request, abra uma [
 
 #### License
   
-* see [LICENSE](https://github.com/lucaspicinini/decodificador/LICENSE) file
+* see [LICENSE](https://github.com/lucaspicinini/decodificador/blob/main/LICENSE) file
 
 #### Versions
 * Version 1.0 ~ 01/02/2023
