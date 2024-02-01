@@ -11,7 +11,7 @@ import { definirAlgoritmoEmUso } from "./definirAlgoritmoEmUso.js"
 // processamento de criptografia e descriptografia ----->
 import { criptografarTexto, descriptografarTexto } from "./decodificador.js";
 // função salvar, copiar e excluir textos
-import { salvarTexto, copiarTextoSalvo, excluirTexto } from "./salvar-excluir-texto.js";
+import { salvarTexto, copiarTextoSalvo, excluirTexto } from "./salvarExcluirCopiarTexto.js";
 // FIM ------^
 
 // configura a imagem de background ao ------>
