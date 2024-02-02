@@ -35,14 +35,28 @@ function changeBackground() {
 }
 // FIM ------^
 
-// define o algoritmo em uso, iniciando no default do desafio Alura ---------->
+// configurações de codificação ---------->
+// alterna entre os modos QRCode e Decodificação
+function alternaQRCodeDecodificacao() {
+    if (globals.containerAlgoritmos.classList.contains("d-none") && !globals.containerQRCode.classList.contains("d-none")) {
+        globals.containerAlgoritmos.classList.remove("d-none")
+        globals.containerQRCode.classList.add("d-none")
+    } else if (globals.containerQRCode.classList.contains("d-none") && !globals.containerCards.classList.contains("d-none")) {
+        globals.containerQRCode.classList.remove("d-none")
+        globals.containerAlgoritmos.classList.add("d-none")
+    }
+}
+
+// define o algoritmo em uso, iniciando no default do desafio Alura
 const algoritmoEmUso = definirAlgoritmoEmUso(globals.algoritmoAlurithm)
 
 // seleciona o Alurithm, algoritmo default do challenge
 globals.btnAlurithm.addEventListener("click", () => {
+    alternaQRCodeDecodificacao()
     definirAlgoritmoEmUso(globals.algoritmoAlurithm)
     globals.algoBannerAlurithm.classList.remove("d-none")
     globals.algoBannerCustom.classList.add("d-none")
+    globals.algoBannerQRCode.classList.add("d-none")
     globals.formContainer.classList.add("d-none")
 })
 
@@ -55,13 +69,24 @@ globals.btnPersonalizado.addEventListener("click", () => {
         if(validacao() == false){
             setTimeout(() => globals.btnDefinirAlgo.classList.remove("disabled"), 1000)
         } else if(validacao() == true) {
+            alternaQRCodeDecodificacao()
             const algoritmoPersonalizado = formarAlgoritmoPersonalizado()
             definirAlgoritmoEmUso(algoritmoPersonalizado)
             globals.algoBannerCustom.classList.remove("d-none")
             globals.algoBannerAlurithm.classList.add("d-none")
+            globals.algoBannerQRCode.classList.add("d-none")
             globals.formContainer.classList.add("d-none")
         }      
     })
+})
+
+// alterna para o modo de codificação em QRCode
+globals.btnQRCode.addEventListener("click", () => {
+    alternaQRCodeDecodificacao()
+    globals.algoBannerQRCode.classList.remove("d-none")
+    globals.algoBannerCustom.classList.add("d-none")
+    globals.algoBannerAlurithm.classList.add("d-none")
+    globals.formContainer.classList.add("d-none")
 })
 // FIM ------^
 
@@ -102,6 +127,20 @@ globals.btnReset.addEventListener("click", () => {
     globals.textoInput.value = ""
     globals.textoOutput.innerHTML = ""
 })
+// FIM ------^
+
+// botão QRCode ------>
+
+globals.btnGerarQRCode.addEventListener("click", () => {
+    if (!globals.textoInputQR.value == "") {
+        const textoParaQRCode = globals.textoInputQR.value
+        QRCode.toCanvas(globals.QRcanvas, textoParaQRCode, {scale: 6, margin: 2}, function (error) {
+            if (error) console.error(error)
+            console.log('success!');
+        })
+    }
+})
+
 // FIM ------^
 
 // Salvar e Excluir Texto ------>
