@@ -50,6 +50,7 @@ O resultado deve ser exibido na tela.
 ## Funcionalidades que adicionei no projeto
 
 - `Possibilidade do usuário criar seu próprio algoritmo de criptografia.`
+- `Codificação de texto para QRCode.`
 - `Funções salvar e excluir as strings em cards na interface.`
 - `Alertas dinâmicos ao copiar e salvar textos.`
 - `Modal de confirmação no momento do Reset.`

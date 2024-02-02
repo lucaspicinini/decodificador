@@ -12,6 +12,7 @@ import { definirAlgoritmoEmUso } from "./definirAlgoritmoEmUso.js"
 import { criptografarTexto, descriptografarTexto } from "./decodificador.js";
 // função salvar, copiar e excluir textos
 import { salvarTexto, copiarTextoSalvo, excluirTexto } from "./salvarExcluirCopiarTexto.js";
+import { setQRCode } from "./qrcode.bundle.min.js";
 // FIM ------^
 
 // configura a imagem de background ao ------>
@@ -134,7 +135,7 @@ globals.btnReset.addEventListener("click", () => {
 globals.btnGerarQRCode.addEventListener("click", () => {
     if (!globals.textoInputQR.value == "") {
         const textoParaQRCode = globals.textoInputQR.value
-        QRCode.toCanvas(globals.QRcanvas, textoParaQRCode, {scale: 6, margin: 2}, function (error) {
+        setQRCode.toCanvas(globals.QRcanvas, textoParaQRCode, {scale: 6, margin: 2}, function (error) {
             if (error) console.error(error)
             console.log('success!');
         })
